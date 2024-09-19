@@ -56,4 +56,32 @@ router.get("/facturaDetalle/obtenerTodos", facturaDetalle.retrieveAllFacturaDeta
 router.get("/facturaDetalle/obtenerFacturaDetalle/:idFacturaDetalle", facturaDetalle.ObtenerFacturaDetalleId);
 router.put("/facturaDetalle/actualizarFacturaDetalle/:idFacturaDetalle", facturaDetalle.ActualizarFacturaDetalle);
 router.delete("/facturaDetalle/eliminarFacturaDetalle/:idFacturaDetalle", facturaDetalle.EliminarFacturaDetalle);
+
+
+////Usuario
+const usuario = require("../Controllers/usuario.controller.js");
+router.post("/usuario/CrearUsuario", usuario.CrearUsuario);
+router.get("/usuario/obtenerTodos", usuario.retrieveAllUsuario);
+router.get("/usuario/obtenerUsuario/:idUsuario", usuario.ObtenerUsuarioId);
+router.put("/usuario/actualizarUsuario/:idUsuario", usuario.ActualizarUsuario);
+router.delete("/usuario/eliminarUsuario/:idUsuario", usuario.EliminarUsuario);
+
+
+////Autor
+const autor = require("../Controllers/autor.controller.js");
+router.post("/autor/create", autor.create);
+router.get("/autor/all", autor.retrieveAllAutor);
+router.get("/autor/onebyid/:id", autor.getAutorById);
+router.put("/autor/update/:id", autor.updateById);
+router.delete("/autor/delete/:id", autor.deleteById);
+
+
+////Libro
+const libro = require("../Controllers/libro.controller.js");
+router.post("/libro/create", libro.create);
+router.get("/libro/all", libro.retrieveAllLibro);
+router.get("/libro/onebyid/:id", libro.getLibroById);
+router.put("/libro/update/:id", libro.updateById);
+router.delete("/libro/delete/:id", libro.deleteById);
+
 module.exports = router;
