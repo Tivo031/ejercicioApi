@@ -87,12 +87,12 @@ exports.ActualizarUsuario = async (req, res) => {
 
       if (!result) {
         res.status(500).json({
-          message: "Error -> No fue posible actualizar el Empleado con id = " + req.params.idUsuario,
+          message: "Error -> No fue posible actualizar el Usuario con id = " + req.params.idUsuario,
           error: "Can NOT Updated"
         });
       }
       res.status(200).json({
-        message: `Empleado actualizado con éxito, id = ${usuarioId}`,
+        message: `Usuario actualizado con éxito, id = ${usuarioId}`,
         usuarios: updatedObject
       });
     }
