@@ -32,4 +32,8 @@ db.Usuario = require('../Models/usuario.model.js')(sequelize, Sequelize);
 db.Libro = require('../Models/libro.model.js')(sequelize,Sequelize);
 db.Autor = require('../Models/autor.model.js')(sequelize,Sequelize);
 
+db.Usuarios = require('../Models/usuarios.model.js')(sequelize, Sequelize);
+db.Proyectos = require('../Models/proyectos.model.js')(sequelize, Sequelize);
+db.Tareas = require('../Models/tareas.model.js')(sequelize, Sequelize);
+
 module.exports = db;
