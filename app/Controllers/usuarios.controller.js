@@ -42,17 +42,17 @@ exports.retrieveAllUsuario = (req, res) => {
 };
 
 exports.ObtenerUsuarioId = (req, res) => {
-  let usuarioId = req.params.idUsuario;
-  Usuarios.findByPk(usuarioId)
+  let usuariosId = req.params.idUsuario;
+  Usuarios.findByPk(usuariosId)
     .then(usuarios => {
       if (usuarios) {
         res.status(200).json({
-          message: `Usuario obtenido con id = ${usuarioId}`,
+          message: `Usuario obtenido con id = ${usuariosId}`,
           usuarios: usuarios
         });
       } else {
         res.status(404).json({
-          message: `No se encontró el usuario con id = ${usuarioId}`
+          message: `No se encontró el usuario con id = ${usuariosId}`
         });
       }
     })
@@ -67,12 +67,12 @@ exports.ObtenerUsuarioId = (req, res) => {
 
 exports.ActualizarUsuario = async (req, res) => {
   try {
-    let usuarioId = req.params.idUsuario;
-    let usuarios = await usuarios.findByPk(usuarioId);
+    let usuariosId = req.params.idUsuario;
+    let usuarios = await usuarios.findByPk(usuariosId);
 
     if (!usuarios) {
       res.status(404).json({
-        message: `No fue posible actualizar el usuario con id = ${usuarioId}`,
+        message: `No fue posible actualizar el usuario con id = ${usuariosId}`,
         usuarios: "",
         error: "404"
       });
@@ -83,7 +83,7 @@ exports.ActualizarUsuario = async (req, res) => {
         contrasenia: req.body.contrasenia,
         fechaCreacion: req.body.fechaCreacion,
       };
-      let result = await Usuarios.update(updatedObject, { returning: true, where: { id: usuarioId } });
+      let result = await Usuarios.update(updatedObject, { returning: true, where: { id: usuariosId } });
 
       if (!result) {
         res.status(500).json({
@@ -92,7 +92,7 @@ exports.ActualizarUsuario = async (req, res) => {
         });
       }
       res.status(200).json({
-        message: `Usuario actualizado con éxito, id = ${usuarioId}`,
+        message: `Usuario actualizado con éxito, id = ${usuariosId}`,
         usuarios: updatedObject
       });
     }
@@ -106,24 +106,24 @@ exports.ActualizarUsuario = async (req, res) => {
 
 exports.EliminarUsuario = async (req, res) => {
   try {
-    let usuarioId = req.params.idUsuario;
-    let usuarios = await usuarios.findByPk(usuarioId);
+    let usuariosId = req.params.idUsuario;
+    let usuarios = await usuarios.findByPk(usuariosId);
 
     if (!usuarios) {
       res.status(404).json({
-        message: `No existe el usuario con id = ${usuarioId}`,
+        message: `No existe el usuario con id = ${usuariosId}`,
         error: "404"
       });
     } else {
       await usuario.destroy();
       res.status(200).json({
-        message: `usuario eliminado con éxito, id = ${usuarioId}`,
+        message: `usuario eliminado con éxito, id = ${usuariosId}`,
         usuarios: usuarios
       });
     }
   } catch (error) {
     res.status(500).json({
-      message: "Error -> No se puede eliminar el usuario con id = " + req.params.idusuario,
+      message: "Error -> No se puede eliminar el usuario con id = " + req.params.idUsuario,
       error: error.message
     });
   }
