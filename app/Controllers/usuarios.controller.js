@@ -10,7 +10,7 @@ exports.CrearUsuario = (req, res) => {
     usuarios.contrasenia = req.body.contrasenia;
     usuarios.fechaCreacion = req.body.fechaCreacion;
 
-    Usuario.create(usuarios).then((result) => {
+    Usuarios.create(usuarios).then((result) => {
       res.status(200).json({
         message: `Registro creado exitosamente con id = ${result.idUsuario}`,
         usuarios: result,
@@ -29,7 +29,7 @@ exports.retrieveAllUsuario = (req, res) => {
     .then(usuarioInfo => {
       res.status(200).json({
         message: "Usuarios recuperados exitosamente!",
-        usuario: usuarioInfo
+        usuarios: usuarioInfo
       });
     })
     .catch(error => {
