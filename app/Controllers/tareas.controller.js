@@ -69,7 +69,7 @@ exports.ObtenerTareasId = (req, res) => {
 exports.ActualizarTareas = async (req, res) => {
   try {
     let tareasId = req.params.idTarea;
-    let tareas = await tareas.findByPk(tareasId);
+    let tareas = await Tareas.findByPk(tareasId);
 
     if (!tareas) {
       res.status(404).json({
@@ -109,7 +109,7 @@ exports.ActualizarTareas = async (req, res) => {
 exports.EliminarTareas = async (req, res) => {
   try {
     let tareasId = req.params.idTarea;
-    let tareas = await tareas.findByPk(tareasId);
+    let tareas = await Tareas.findByPk(tareasId);
 
     if (!tareas) {
       res.status(404).json({
@@ -125,7 +125,7 @@ exports.EliminarTareas = async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      message: "Error -> No se puede eliminar las tareas con id = " + req.params.idusuario,
+      message: "Error -> No se puede eliminar las tareas con id = " + req.params.idTarea,
       error: error.message
     });
   }

@@ -68,7 +68,7 @@ exports.ObtenerProyectosId = (req, res) => {
 exports.ActualizarProyectos = async (req, res) => {
   try {
     let proyectosId = req.params.idProyecto; 
-    let proyectos = await proyectos.findByPk(proyectosId);
+    let proyectos = await Proyectos.findByPk(proyectosId);
 
     if (!proyectos) {
       res.status(404).json({
@@ -107,7 +107,7 @@ exports.ActualizarProyectos = async (req, res) => {
 exports.EliminarProyectos = async (req, res) => {
   try {
     let proyectosId = req.params.idProyecto;
-    let proyectos = await proyectos.findByPk(proyectosId);
+    let proyectos = await Proyectos.findByPk(proyectosId);
 
     if (!proyectos) {
       res.status(404).json({

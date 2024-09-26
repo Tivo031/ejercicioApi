@@ -68,7 +68,7 @@ exports.ObtenerUsuarioId = (req, res) => {
 exports.ActualizarUsuario = async (req, res) => {
   try {
     let usuariosId = req.params.idUsuario;
-    let usuarios = await usuarios.findByPk(usuariosId);
+    let usuarios = await Usuarios.findByPk(usuariosId);
 
     if (!usuarios) {
       res.status(404).json({
@@ -107,7 +107,7 @@ exports.ActualizarUsuario = async (req, res) => {
 exports.EliminarUsuario = async (req, res) => {
   try {
     let usuariosId = req.params.idUsuario;
-    let usuarios = await usuarios.findByPk(usuariosId);
+    let usuarios = await Usuarios.findByPk(usuariosId);
 
     if (!usuarios) {
       res.status(404).json({
