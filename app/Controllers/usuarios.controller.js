@@ -115,7 +115,7 @@ exports.EliminarUsuario = async (req, res) => {
         error: "404"
       });
     } else {
-      await usuario.destroy();
+      await usuarios.destroy();
       res.status(200).json({
         message: `usuario eliminado con éxito, id = ${usuariosId}`,
         usuarios: usuarios
