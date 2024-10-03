@@ -83,7 +83,7 @@ exports.ActualizarProyectos = async (req, res) => {
         descripcion: req.body.descripcion,
         fechaRegistro: req.body.fechaRegistro,
       };
-      let result = await Proyectos.update(updatedObject, { returning: true, where: { id: proyectosId } });
+      let result = await Proyectos.update(updatedObject, { returning: true, where: { idProyecto: proyectosId } });
 
       if (!result) {
         res.status(500).json({

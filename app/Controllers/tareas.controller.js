@@ -85,7 +85,7 @@ exports.ActualizarTareas = async (req, res) => {
         fechaCreacion: req.body.fechaCreacion,
         fechaVencimiento: req.body.fechaVencimiento
       };
-      let result = await Tareas.update(updatedObject, { returning: true, where: { id: tareasId } });
+      let result = await Tareas.update(updatedObject, { returning: true, where: { idTarea: tareasId } });
 
       if (!result) {
         res.status(500).json({
