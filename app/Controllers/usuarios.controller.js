@@ -83,7 +83,7 @@ exports.ActualizarUsuario = async (req, res) => {
         contrasenia: req.body.contrasenia,
         fechaCreacion: req.body.fechaCreacion,
       };
-      let result = await Usuarios.update(updatedObject, { returning: true, where: { id: usuariosId } });
+      let result = await Usuarios.update(updatedObject, { returning: true, where: { idUsuario: usuariosId } });
 
       if (!result) {
         res.status(500).json({
